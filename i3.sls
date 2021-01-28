@@ -16,7 +16,7 @@ gnome-term-profile:
     - runas: {{ grains['target_user'] }}
 
 # Set up the config file
-"{{ grains['target_home'] }}/.config":
+"{{ grains['target_home'] }}/.config/i3":
   file.directory:
     - user: {{ grains['target_user'] }}
     - group: {{ grains['target_user'] }}
@@ -25,7 +25,7 @@ gnome-term-profile:
 
 i3_conf_general:
   file.managed:
-    - name: "{{ grains['target_home'] }}/.config/i3"
+    - name: "{{ grains['target_home'] }}/.config/i3/config"
     - source: "salt://i3"
     - group:  {{ grains['target_user'] }}
     - mode: 644
@@ -34,7 +34,7 @@ i3_conf_general:
 gui_i3_conf:
   file.accumulated:
     - name: i3_includes
-    - filename: "{{ grains['target_home'] }}/.config/i3"
+    - filename: "{{ grains['target_home'] }}/.config/i3/config"
     - text: "# Placeholder for other modules i3 chnages"
     - require_in:
       - file: i3_conf_general
