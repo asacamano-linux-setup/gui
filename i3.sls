@@ -35,7 +35,7 @@ gui_i3_conf:
   file.accumulated:
     - name: i3_includes
     - filename: "{{ grains['target_home'] }}/.config/i3/config"
-    - text: "# Placeholder for other modules i3 chnages"
+    - text: "# Placeholder for other modules i3 changes"
     - require_in:
       - file: i3_conf_general
 
