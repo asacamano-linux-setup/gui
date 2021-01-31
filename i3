@@ -259,5 +259,6 @@ bar {
         status_command i3status
 }
 # Include the various I3 configs for different environments.
-{% for include in accumulator['i3_includes']|sort %}{{ include }}
-{% endfor %}
+{% if config_file_includes is mapping and 'i3' in config_file_includes %}{% for include in config_file_includes['i3']|sort %}
+{{ include }}{% endfor %}{% else %}
+# No other configs to include{% endif %}

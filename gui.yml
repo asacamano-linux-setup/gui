@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Set up GUI elements
+      include_tasks: "{{ item }}"
+      loop:
+        - i3.yml
+        - utils.yml

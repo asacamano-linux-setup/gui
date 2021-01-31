@@ -1,0 +1,9 @@
+---
+- name: Install k3diff
+  package:
+    name: kdiff3
+    state: present
+- name: Install meld
+  package:
+    name: meld
+    state: present
