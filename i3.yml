@@ -8,8 +8,8 @@
     name: rofi
     state: present
 - name: Set up gnome terminal
-  shell: "dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < {{ sync_dir }}/modules/gui/gnome-terminal-profile"
   become_user: "{{ target_user }}"
+  shell: "dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < {{ sync_dir }}/modules/gui/gnome-terminal-profile"
 - name: Set up I3 config
   template:
     dest: "{{ target_home }}/.config/i3"

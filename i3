@@ -129,7 +129,7 @@ mode "act" {
 	# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 	bindsym Shift+r restart ; mode "default"
 	# exit i3 (logs you out of your X session)
-	bindsym Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'" 
+	bindsym Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 	# Enter resize mode
 	bindsym r mode "resize"
