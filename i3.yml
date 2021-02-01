@@ -11,13 +11,13 @@
 
 - name: Set up gnome terminal
   become_user: "{{ target_user }}"
-  shell: "dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < {{ sync_dir }}/modules/gui/gnome-terminal-profile"
+  shell: "if [[ -n ${DISPLAY} ]]; then dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < {{ sync_dir }}/modules/gui/gnome-terminal-profile; fi"
 
 - name: Set up I3 config
   template:
     dest: "{{ target_home }}/.config/i3"
     src: i3
     owner: "{{ target_user }}"
-    group: "{{ target_user }}"
+    group: "{{ target_group }}"
     mode: 0440
     backup: true
