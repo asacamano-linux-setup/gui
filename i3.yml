@@ -13,6 +13,17 @@
   become_user: "{{ target_user }}"
   shell: "if [[ -n ${DISPLAY} ]]; then dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < {{ sync_dir }}/modules/gui/gnome-terminal-profile; fi"
 
+- name: Set up chrome remote desktop
+  copy:
+    dest: "{{ target_home }}/.chrome-remote-desktop-session"
+    owner: "{{ target_user }}"
+    group: "{{ target_group }}"
+    mode: 0440
+    backup: true
+    content: |
+      # To load ~/.Xresources while chromoting
+      exec /etc/X11/Xsession /usr/bin/i3
+
 - name: Set up I3 config
   blockinfile:
     create: true
